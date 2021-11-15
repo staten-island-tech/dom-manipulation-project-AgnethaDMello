@@ -3,35 +3,37 @@ const DOMSelectors = {
     artist: document.getElementById("artist"),
     url: document.getElementById("url"),
     submit: document.querySelector(".btn"),
-    form: document.getElementById("form")
+    form: document.getElementById("form"),
+    display: document.getElementById("display"),
 };
 
-document.getElementById("form").addEventListener("submit", function (event) {
+function add(album) {
+    DOMSelectors.display.insertAdjacentHTML("afterbegin",
+        `<div class = "display-card">
+    <img class = "img" src = "${album.url}"/>
+    <h2 class ="artistname">"${album.artist}"</h2>
+    <h3 class = "albumtitle">"${album.title}"</h3>
+    <button class = "remove-btn"> Remove album </button>
+    </div>`
+    );
+};
+
+function clear(album) {
+    DOMSelectors.title.value = "";
+    DOMSelectors.artist.value = "";
+    DOMSelectors.url.value = "";
+}
+
+DOMSelectors.form.addEventListener("submit", function (event) {
     event.preventDefault();
     let album = {};
     album.title = document.getElementById("title").value;
     album.artist = document.getElementById("artist").value;
     album.url = document.getElementById("url").value;
     console.log(album);
-});
+    add(album);
+    clear(album);
 
-DOMSelectors.submit.addEventListener("click", function () {
-    let titleInput = DOMSelectors.title.value;
-    DOMSelectors.submit.insertAdjacentHTML("afterend", `<p> ${titleInput}</p>`);
-    DOMSelectors.title.value = "";
-    console.log(titleInput)
-});
-
-DOMSelectors.submit.addEventListener("click", function () {
-    let artistInput = DOMSelectors.artist.value;
-    DOMSelectors.submit.insertAdjacentHTML("afterend", `<p> ${artistInput}</p>`);
-    DOMSelectors.artist.value = "";
-    console.log(artistInput)
-});
-
-DOMSelectors.submit.addEventListener("click", function () {
-    let urlInput = DOMSelectors.url.value;
-    DOMSelectors.submit.insertAdjacentHTML("afterend", `<p> ${urlInput}</p>`);
-    DOMSelectors.url.value = "";
-    console.log(urlInput)
+    const removeBtns = document.querySelectorAll(".remove-btn");
+    removeBtns.forEach((btn) => )
 });
