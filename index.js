@@ -13,7 +13,7 @@ function add(album) {
     <img class = "img" src = "${album.url}"/>
     <h2 class ="artistname">"${album.artist}"</h2>
     <h3 class = "albumtitle">"${album.title}"</h3>
-    <button class = "remove-btn"> Remove album </button>
+    <button class = "remove-btn"> Remove Album </button>
     </div>`
     );
 };
@@ -36,6 +36,6 @@ DOMSelectors.form.addEventListener("submit", function (event) {
 
     const removeBtns = document.querySelectorAll(".display-card");
     removeBtns.forEach((btn) => btn.addEventListener("click", function (e) {
-        e.currentTarget.style.visibility = 'hidden';
+        e.target.parentElement.remove();
     }));
 });
