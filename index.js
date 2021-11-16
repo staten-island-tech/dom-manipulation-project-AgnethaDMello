@@ -33,7 +33,10 @@ DOMSelectors.form.addEventListener("submit", function (event) {
     console.log(album);
     add(album);
     clear(album);
-
-    const removeBtns = document.querySelectorAll(".remove-btn");
-    removeBtns.forEach((btn) => )
 });
+
+/* const removeBtns = document.querySelectorAll(".remove-btn");
+removeBtns.forEach((btn) => btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.currentTarget.style.visibility = 'hidden';
+}));  */
